@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 充值平台设计系统 - 现代化蓝白配色方案 */
+
+@layer base {
+  :root {
+    /* 基础颜色 */
+    --background: 0 0% 100%;
+    --foreground: 216 26% 15%;
+
+    /* 卡片容器 */
+    --card: 220 9% 97.6%;
+    --card-foreground: 216 26% 15%;
+
+    /* 弹出层 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 26% 15%;
+
+    /* 品牌主色 - 蓝色系 */
+    --primary: 216 80% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 216 80% 40%;
+
+    /* 辅助色 */
+    --secondary: 220 9% 97.6%;
+    --secondary-foreground: 216 26% 15%;
+
+    /* 静音色 */
+    --muted: 220 9% 97.6%;
+    --muted-foreground: 216 19% 46%;
+
+    /* 强调色 */
+    --accent: 216 80% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* 危险色 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* 边框和输入框 */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 80% 45%;
+
+    --radius: 0.75rem;
+
+    /* 成功状态 */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* 警告状态 */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* 信息状态 */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* 渐变色 */
+    --gradient-primary: linear-gradient(135deg, hsl(216 80% 45%) 0%, hsl(216 80% 35%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(220 9% 97.6%) 0%, hsl(220 9% 95%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(216 80% 50%) 0%, hsl(216 70% 40%) 50%, hsl(216 60% 35%) 100%);
+
+    /* 阴影 */
+    --shadow-card: 0 4px 6px -1px hsl(216 80% 45% / 0.1), 0 2px 4px -1px hsl(216 80% 45% / 0.06);
+    --shadow-primary: 0 10px 15px -3px hsl(216 80% 45% / 0.1), 0 4px 6px -2px hsl(216 80% 45% / 0.05);
+    --shadow-lg: 0 25px 50px -12px hsl(216 80% 45% / 0.25);
+
+    /* 动画缓动 */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 216 26% 8%;
+    --foreground: 220 9% 97.6%;
+
+    --card: 216 26% 10%;
+    --card-foreground: 220 9% 97.6%;
+
+    --popover: 216 26% 10%;
+    --popover-foreground: 220 9% 97.6%;
+
+    --primary: 216 80% 55%;
+    --primary-foreground: 216 26% 8%;
+    --primary-hover: 216 80% 50%;
+
+    --secondary: 216 26% 12%;
+    --secondary-foreground: 220 9% 97.6%;
+
+    --muted: 216 26% 12%;
+    --muted-foreground: 216 19% 65%;
+
+    --accent: 216 80% 55%;
+    --accent-foreground: 216 26% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 97.6%;
+
+    --border: 216 26% 15%;
+    --input: 216 26% 15%;
+    --ring: 216 80% 55%;
+
+    --success: 142 76% 46%;
+    --warning: 38 92% 60%;
+    --info: 199 89% 58%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(216 80% 55%) 0%, hsl(216 80% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(216 26% 12%) 0%, hsl(216 26% 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(216 80% 60%) 0%, hsl(216 70% 50%) 50%, hsl(216 60% 45%) 100%);
+
+    --shadow-card: 0 4px 6px -1px hsl(216 26% 8% / 0.3), 0 2px 4px -1px hsl(216 26% 8% / 0.2);
+    --shadow-primary: 0 10px 15px -3px hsl(216 26% 8% / 0.3), 0 4px 6px -2px hsl(216 26% 8% / 0.2);
+    --shadow-lg: 0 25px 50px -12px hsl(216 26% 8% / 0.5);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border/50;
+  }
+
+  .card-primary {
+    @apply bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-xl;
+  }
+
+  .step-active {
+    @apply bg-primary text-primary-foreground shadow-[var(--shadow-primary)];
+  }
+
+  .step-completed {
+    @apply bg-success text-success-foreground;
+  }
+
+  .step-inactive {
+    @apply bg-muted text-muted-foreground;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
