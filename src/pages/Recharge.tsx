@@ -20,11 +20,11 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// 修改步骤定义，移除"选择服务"步骤
-const steps = ["欢迎", "验证卡密", "获取密钥", "确认充值"];
+// 修改步骤定义，添加"选择服务"步骤
+const steps = ["欢迎", "选择服务", "验证卡密", "获取密钥", "确认充值"];
 
 export default function Recharge() {
-  // 将初始步骤设置为1（欢迎），下一步将直接跳到验证卡密（步骤2）
+  // 将初始步骤设置为1（欢迎），下一步将直接跳到选择服务（步骤2）
   const [currentStep, setCurrentStep] = useState(1);
   const [serviceType, setServiceType] = useState("have-card"); // 默认设置为"have-card"
   const [cardKey, setCardKey] = useState("");
@@ -45,12 +45,12 @@ export default function Recharge() {
     }
   };
 
-  // 修改handleServiceSelect函数，使其直接进入下一步
+  // 修改handleServiceSelect函数，使其根据用户选择进入下一步或跳转到购买页面
   const handleServiceSelect = (type: string) => {
     setServiceType(type);
     if (type === "buy-card") {
       // 跳转到购买页面的逻辑
-      window.open("https://example.com/buy", "_blank");
+      window.open("https://buy.gptvip.top/buy/1", "_blank");
     } else {
       handleNext();
     }
@@ -432,6 +432,50 @@ export default function Recharge() {
         return (
           <Card className="card-elevated max-w-lg mx-auto">
             <CardHeader>
+              <CardTitle className="text-center text-2xl">选择您的服务</CardTitle>
+              <p className="text-center text-muted-foreground">若您没有卡密，请先点击 前往购买 获取充值卡密</p>
+            </CardHeader>
+            <CardContent className="p-8 space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="card-elevated">
+                  <CardContent className="flex flex-col items-center space-y-4 p-6">
+                    <CheckCircle className="w-10 h-10 text-success" />
+                    <CardTitle className="text-center">我已有卡密</CardTitle>
+                    <p className="text-center text-sm text-muted-foreground">
+                      直接使用已购买的充值卡密进行充值
+                    </p>
+                    <Button 
+                      onClick={() => handleServiceSelect("have-card")} 
+                      className="w-full btn-success"
+                    >
+                      立即充值
+                    </Button>
+                  </CardContent>
+                </Card>
+                <Card className="card-elevated">
+                  <CardContent className="flex flex-col items-center space-y-4 p-6">
+                    <ShoppingCart className="w-10 h-10 text-info" />
+                    <CardTitle className="text-center">购买卡密</CardTitle>
+                    <p className="text-center text-sm text-muted-foreground">
+                      前往官方授权商城购买充值卡密
+                    </p>
+                    <Button 
+                      onClick={() => handleServiceSelect("buy-card")} 
+                      className="w-full btn-primary"
+                    >
+                      前往购买
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </CardContent>
+          </Card>
+        );
+
+      case 3:
+        return (
+          <Card className="card-elevated max-w-lg mx-auto">
+            <CardHeader>
               <CardTitle className="text-center text-2xl">验证卡密</CardTitle>
               <p className="text-center text-muted-foreground">请输入您购买的卡密</p>
             </CardHeader>
@@ -463,7 +507,7 @@ export default function Recharge() {
           </Card>
         );
 
-      case 3:
+      case 4:
         return (
           <Card className="card-elevated max-w-2xl mx-auto">
             <CardHeader>
@@ -522,7 +566,7 @@ export default function Recharge() {
           </Card>
         );
 
-      case 4:
+      case 5:
         return (
           <Card className="card-elevated max-w-lg mx-auto">
             <CardHeader>
