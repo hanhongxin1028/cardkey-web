@@ -100,7 +100,7 @@ export default function Recharge() {
     
     // 调用API接口，将卡密作为GET参数传递
     try {
-      const response = await fetch(`https://api.ow520.com/api/card-keys/${cardKey}`);
+      const response = await fetch(`https://api.ow521.com/api/card-keys/${cardKey}`);
       if (response.ok) {
         const data = await response.json();
         console.log("API调用成功:", data);
@@ -171,7 +171,7 @@ export default function Recharge() {
       }
 
       // 调用API验证token，只传递access_token字段
-      const response = await fetch("https://api.ow520.com/api/parse-token", {
+      const response = await fetch("https://api.ow521.com/api/parse-token", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -240,7 +240,7 @@ export default function Recharge() {
 
     try {
       // 调用API创建充值任务
-      const response = await fetch("https://api.ow520.com/api/tasks", {
+      const response = await fetch("https://api.ow521.com/api/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -308,7 +308,7 @@ export default function Recharge() {
 
     const poll = async () => {
       try {
-        const response = await fetch(`https://api.ow520.com/api/tasks/${taskId}`);
+        const response = await fetch(`https://api.ow521.com/api/tasks/${taskId}`);
         
         if (response.ok) {
           const data = await response.json();
