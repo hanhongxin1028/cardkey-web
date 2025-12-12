@@ -6,8 +6,8 @@ pipeline {
     }
 	environment {
 		GIT_CREDENTIALS_ID = 'github-pat-user-creds'
-		SSH_CREDENTIALS_ID = 'hongkong-server'
-		DEPLOY_HOST = '149.104.31.74'       // TODO: replace with your target host
+		SSH_CREDENTIALS_ID = 'huoshan-server'
+		DEPLOY_HOST = '118.196.24.101'       // TODO: replace with your target host
 		DEPLOY_PATH = '/var/www/cardkey-web' // TODO: replace with your deploy path
 		DEPLOY_PORT = '22'
 		NODE_OPTIONS = '--max_old_space_size=4096'
