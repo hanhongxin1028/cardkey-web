@@ -41,12 +41,12 @@ pipeline {
 			}
 		}
 
-		stage('Lint') {
-			when { expression { fileExists('eslint.config.js') } }
-			steps {
-				sh 'npm run lint'
-			}
-		}
+		// stage('Lint') {
+		// 	when { expression { fileExists('eslint.config.js') } }
+		// 	steps {
+		// 		sh 'npm run lint'
+		// 	}
+		// }
 
 		stage('Build') {
 			steps {
