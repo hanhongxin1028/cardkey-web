@@ -1,5 +1,5 @@
 # Welcome to your Lovable project
-测试自动 git push
+测试新版自动 git push
 ## Project info
 
 **URL**: https://lovable.dev/projects/f8da3564-c9c4-49d8-992c-77c6a2c0f3ba
