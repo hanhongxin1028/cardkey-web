@@ -21,6 +21,6 @@ deploy:
   # restart_cmd: "systemctl restart my-service"  # 可选
 
 nginx:
-  enable: true
+  enable: false
   config_path: "/etc/nginx/conf.d/my-web.conf"
   reload_cmd: "nginx -s reload"
