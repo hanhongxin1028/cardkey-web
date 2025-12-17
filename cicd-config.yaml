@@ -7,7 +7,7 @@ server:
 
 git:
   branch: "feature/cicd-test"
-  commit_msg: "测试cicd远程部署"
+  commit_msg: "测试cicd远程部署2"
 
 build:
   strategy: "remote"  # local 或 remote
