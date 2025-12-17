@@ -7,13 +7,13 @@ server:
 
 git:
   branch: "feature/cicd-test"
-  commit_msg: "测试cicd配置"
+  commit_msg: "测试自动化 nginx 部署"
 
 build:
-  strategy: "local"  # local 或 remote
+  strategy: "remote"  # local 或 remote
   dist_dir: "dist"
   local_cmd: "npm install && npm run build"
-  remote_cmd: "npm install && npm run build"
+  remote_cmd: "source ~/.nvm/nvm.sh && npm install && npm run build"
 
 deploy:
   remote_code_path: "/root/cardkey-web"
@@ -22,5 +22,3 @@ deploy:
 
 nginx:
   enable: true
-  config_path: "/etc/nginx/conf.d/my-web.conf"
-  reload_cmd: "nginx -s reload"
