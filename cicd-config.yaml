@@ -7,7 +7,7 @@ server:
 
 git:
   branch: "feature/cicd-test"
-  commit_msg: "测试cicd远程部署7"
+  commit_msg: "测试nginx部署"
 
 build:
   strategy: "remote"  # local 或 remote
@@ -21,6 +21,4 @@ deploy:
   # restart_cmd: "systemctl restart my-service"  # 可选
 
 nginx:
-  enable: false
-  config_path: "/etc/nginx/conf.d/my-web.conf"
-  reload_cmd: "nginx -s reload"
+  enable: true
