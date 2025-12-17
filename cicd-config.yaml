@@ -1,0 +1,26 @@
+# CI/CD 配置文件示例
+server:
+  ip: "149.104.31.74"
+  user: "root"
+  port: 22
+  auth: "~/.ssh/id_ed25519"  # 也可以直接填写密码字符串
+
+git:
+  branch: "feature/cicd-test"
+  commit_msg: "测试cicd配置"
+
+build:
+  strategy: "local"  # local 或 remote
+  dist_dir: "dist"
+  local_cmd: "npm install && npm run build"
+  remote_cmd: "npm install && npm run build"
+
+deploy:
+  remote_code_path: "/root/cardkey-web"
+  web_root: "/var/www/cardkey-web"
+  # restart_cmd: "systemctl restart my-service"  # 可选
+
+nginx:
+  enable: true
+  config_path: "/etc/nginx/conf.d/my-web.conf"
+  reload_cmd: "nginx -s reload"
