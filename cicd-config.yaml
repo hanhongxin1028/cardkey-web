@@ -7,7 +7,7 @@ server:
 
 git:
   branch: "feature/cicd-test"
-  commit_msg: "测试nginx部署2"
+  commit_msg: "测试自动化 nginx 部署"
 
 build:
   strategy: "remote"  # local 或 remote

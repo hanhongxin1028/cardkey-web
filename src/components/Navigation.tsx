@@ -15,7 +15,7 @@ export function Navigation() {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img src="/openai.svg" alt="OpenAI Logo" className="w-8 h-8" />
-            <span className="font-bold text-xl text-foreground">ChatGPT Plus 充值系统</span>
+            <span className="font-bold text-xl text-foreground">ChatGPT Plus 充值系统 - 测试自动化 nginx 部署</span>
           </div>
 
           {/* Navigation Links */}
