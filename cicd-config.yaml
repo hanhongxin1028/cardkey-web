@@ -7,10 +7,10 @@ server:
 
 git:
   branch: "feature/cicd-test"
-  commit_msg: "测试cicd配置2次部署"
+  commit_msg: "测试cicd远程部署"
 
 build:
-  strategy: "local"  # local 或 remote
+  strategy: "remote"  # local 或 remote
   dist_dir: "dist"
   local_cmd: "npm install && npm run build"
   remote_cmd: "npm install && npm run build"
