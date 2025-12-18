@@ -3,14 +3,14 @@ server:
   ip: "149.104.31.74"
   user: "root"
   port: 22
-  auth: "~/.ssh/id_ed25519"  # 也可以直接填写密码字符串
+  auth: "Qq1726574936."  # 也可以直接填写密码字符串
 
 git:
-  branch: "feature/cicd-test2"
-  commit_msg: "测试自动化 nginx 部署2"
+  branch: "feature/cicd-test3"
+  commit_msg: "测试自动化 nginx 部署3"
 
 build:
-  strategy: "remote"  # local 或 remote
+  strategy: "local"  # local 或 remote
   dist_dir: "dist"
   local_cmd: "npm install && npm run build"
   remote_cmd: "source ~/.nvm/nvm.sh && npm install && npm run build"
@@ -18,7 +18,9 @@ build:
 deploy:
   remote_code_path: "/root/cardkey-web"
   web_root: "/var/www/cardkey-web"
-  # restart_cmd: "systemctl restart my-service"  # 可选
 
 nginx:
   enable: true
+  sites_available: "/etc/nginx/sites-available"
+  sites_enabled: "/etc/nginx/sites-enabled"
+  reload_cmd: "nginx -s reload"
