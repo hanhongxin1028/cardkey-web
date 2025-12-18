@@ -6,8 +6,8 @@ server:
   auth: "~/.ssh/id_ed25519"  # 也可以直接填写密码字符串
 
 git:
-  branch: "feature/cicd-test"
-  commit_msg: "测试自动化 nginx 部署"
+  branch: "feature/cicd-test2"
+  commit_msg: "测试自动化 nginx 部署2"
 
 build:
   strategy: "remote"  # local 或 remote
