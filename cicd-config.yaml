@@ -12,8 +12,8 @@ environments:
     steps:
     - npm install
     - npm run build
-    - rm -rf {deploy_path}/*
-    - cp -r dist/* {deploy_path}
+    - sudo rm -rf {deploy_path}/*
+    - sudo cp -r dist/* {deploy_path}
     - action: nginx
   test:
     deploy_path: /data/repos/cardkey-web/dist
