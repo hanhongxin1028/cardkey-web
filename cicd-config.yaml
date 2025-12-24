@@ -2,10 +2,10 @@ project_name: cardkey-web
 server:
   host: 118.196.24.101
   user: hhx
-  repo_path: /root/cardkey-web
+  repo_path: /home/hhx/cardkey-web
   port: 22
   key_file: ~/.ssh/id_ed25519
-  runner_exec: /root/cicd-tool/.venv/bin/cicd-runner
+  runner_exec: /home/hhx/.venv/bin/cicd-runner
 environments:
   prod:
     deploy_path: /var/www/cardkey-web
