@@ -8,7 +8,7 @@ server:
   runner_exec: /root/cicd-tool/.venv/bin/cicd-runner
 environments:
   prod:
-    deploy_path: /apps/cardkey-web/
+    deploy_path: /var/www/cardkey-web
     steps:
     - npm install
     - npm run build
