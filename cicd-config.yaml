@@ -1,26 +1,27 @@
-# CI/CD 配置文件示例
+project_name: cardkey-web
 server:
-  ip: "149.104.31.74"
-  user: "root"
+  host: 118.196.24.101
+  user: root
+  repo_path: /root/cardkey-web
   port: 22
-  auth: "Qq1726574936."  # 也可以直接填写密码字符串
-
-git:
-  branch: "feature/cicd-test3"
-  commit_msg: "测试自动化 nginx 部署3"
-
-build:
-  strategy: "local"  # local 或 remote
-  dist_dir: "dist"
-  local_cmd: "npm install && npm run build"
-  remote_cmd: "source ~/.nvm/nvm.sh && npm install && npm run build"
-
-deploy:
-  remote_code_path: "/root/cardkey-web"
-  web_root: "/var/www/cardkey-web"
-
-nginx:
-  enable: true
-  sites_available: "/etc/nginx/sites-available"
-  sites_enabled: "/etc/nginx/sites-enabled"
-  reload_cmd: "nginx -s reload"
+  key_file: ~/.ssh/id_ed25519
+  runner_exec: /root/cicd-tool/.venv/bin/cicd-runner
+environments:
+  prod:
+    deploy_path: /apps/cardkey-web/
+    steps:
+    - npm install
+    - npm run build:prod
+    - rm -rf {deploy_path}/*
+    - cp -r dist/* {deploy_path}
+    - action: nginx
+  test:
+    deploy_path: /data/repos/cardkey-web/dist
+    steps:
+    - npm install
+    - npm run build:test
+  dev:
+    deploy_path: /data/repos/cardkey-web/dist
+    steps:
+    - npm install
+    - npm run build:dev
