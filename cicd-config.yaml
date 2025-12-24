@@ -5,7 +5,7 @@ server:
   repo_path: /home/hhx/cardkey-web
   port: 22
   key_file: ~/.ssh/id_ed25519
-  runner_exec: /home/hhx/.venv/bin/cicd-runner
+  runner_exec: /home/hhx/cicd-tool/.venv/bin/cicd-runner
 environments:
   prod:
     deploy_path: /var/www/cardkey-web
