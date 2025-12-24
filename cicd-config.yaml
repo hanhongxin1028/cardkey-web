@@ -11,7 +11,7 @@ environments:
     deploy_path: /apps/cardkey-web/
     steps:
     - npm install
-    - npm run build:prod
+    - npm run build
     - rm -rf {deploy_path}/*
     - cp -r dist/* {deploy_path}
     - action: nginx
